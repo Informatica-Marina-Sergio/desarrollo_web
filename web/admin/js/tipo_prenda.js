@@ -89,6 +89,7 @@ $(document).ready(function(){
 				method : 'POST',
 				data : {DELETE_TIPO:1, tip:tip},
 				success : function(response){
+					console.log(response);
 					var resp = $.parseJSON(response);
 					if (resp.status == 202) {
 						alert(resp.message);

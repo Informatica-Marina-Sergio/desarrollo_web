@@ -55,7 +55,7 @@ class Productos
 				$uniqueImageName = time()."_".$file['name'];
 				if (move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/product_images/".$uniqueImageName)) {
 					
-					$q = $this->con->query("INSERT INTO `productos`(`tipo_id`, `name`, `qty`, `price`, `description`, `img`) VALUES ('$category_id', '$product_name', '$product_qty', '$product_price', '$product_desc', '$uniqueImageName')");
+					$q = $this->con->query("INSERT INTO `productos`(`cat_id`, `name`, `qty`, `price`, `description`, `img`) VALUES ('$category_id', '$product_name', '$product_qty', '$product_price', '$product_desc', '$uniqueImageName')");
 					if ($q) {
 						return ['status'=> 202, 'message'=> 'Producto añadido con exito'];
 					}else{
@@ -99,7 +99,7 @@ class Productos
 				if (move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT']."/product_images/".$uniqueImageName)) {
 					
 					$q = $this->con->query("UPDATE `productos` SET 
-										`tipo_id` = '$category_id', 
+										`cat_id` = '$category_id', 
 										`name` = '$product_name', 
 										`qty` = '$product_qty', 
 										`price` = '$product_price', 
@@ -136,7 +136,7 @@ class Productos
 
 		if ($pid != null) {
 			$q = $this->con->query("UPDATE `productos` SET 
-										`tipo_id` = '$category_id', 
+										`cat_id` = '$category_id', 
 										`name` = '$product_name', 
 										`qty` = '$product_qty', 
 										`price` = '$product_price', 
@@ -197,7 +197,7 @@ class Productos
 
 	public function borrarTipo($tip = null){
 		if ($tip != null) {
-			$q = $this->con->query("DELETE FROM tipoprenda WHERE tipo_id = '$tip'");
+			$q = $this->con->query("DELETE FROM tipoprenda WHERE id = '$tip'");
 			if ($q) {
 				return ['status'=> 202, 'message'=> 'Tipo de prenda eliminada'];
 			}else{
@@ -215,7 +215,7 @@ class Productos
 	public function actualizarTipo($post = null){
 		extract($post);
 		if (!empty($tipo_id) && !empty($tipo_nombre)) {
-			$q = $this->con->query("UPDATE tipoprenda SET name = '$tipo_nombre' WHERE id = '$tipo_id'");
+			$q = $this->con->query("UPDATE tipoprenda SET name = '$tipo_nombre' WHERE id = '$cat_id'");
 			if ($q) {
 				return ['status'=> 202, 'message'=> 'Tipo de prenda actualizada'];
 			}else{

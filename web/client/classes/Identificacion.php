@@ -38,7 +38,7 @@ class Identificacion
 				$_SESSION['user_id'] = $row['id'];
 				return ['status' => 202, 'message' => 'Login exitoso'];
 			} else {
-				return ['status' => 303, 'message' => 'Error inesperado, pruebe mas tarde'];
+				return ['status' => 303, 'message' => 'Esta contraseña no es correcta'];
 			}
 		} else {
 			return ['status' => 303, 'message' => 'No existe un usuario con ese correo'];

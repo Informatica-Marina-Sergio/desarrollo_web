@@ -38,7 +38,7 @@ class Identificacion
 				$_SESSION['admin_id'] = $row['id'];
 				return ['status' => 202, 'message' => 'Login exitoso'];
 			} else {
-				return ['status' => 303, 'message' => 'Error inesperado, pruebe mas tarde'];
+				return ['status' => 303, 'message' => 'La contraseña no es correcta'];
 			}
 		} else {
 			return ['status' => 303, 'message' => 'No existe un administrador con ese correo'];
