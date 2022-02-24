@@ -7,7 +7,8 @@ $(document).ready(function(){
 			url : '/admin/classes/Productos.php',
 			method : 'POST',
 			data : {GET_PRODUCTO:1},
-			success : function(resp){
+			success : function(response){
+				var resp = $.parseJSON(response);
 				
 				if (resp.status == 202) {
 
