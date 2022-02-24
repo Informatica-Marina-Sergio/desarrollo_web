@@ -80,7 +80,7 @@
               <input type="hidden" name="tipo_id">
               <div class="form-group">
                 <label>Tipo de prenda</label>
-                <input type="text" name="tipo_nombre" class="form-control" placeholder="Enter Brand Name">
+                <input type="text" name="tipo_nombre" class="form-control" placeholder="Introduce el nuevo nombre">
               </div>
             </div>
             <input type="hidden" name="EDIT_TIPO" value="1">
